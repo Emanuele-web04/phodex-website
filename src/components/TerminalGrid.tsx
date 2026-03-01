@@ -12,7 +12,7 @@ const HALF = CELL / 2
 
 export function TerminalGrid() {
   const cvs = useRef<HTMLCanvasElement>(null)
-  const mouse = useRef(-9999, -9999)
+  const mouse = useRef({ x: -9999, y: -9999 })
   const grid = useRef<{ chars: Uint8Array; stamps: Float32Array; offsets: Float32Array; cols: number; rows: number } | null>(null)
   const raf = useRef(0)
 
