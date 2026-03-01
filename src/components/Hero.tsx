@@ -5,11 +5,11 @@ import { LuTerminal } from 'react-icons/lu'
 export function Hero() {
   return (
     <section className="relative z-20 min-h-[calc(100vh-80px)] flex items-center px-4 md:px-16 lg:px-24">
-      <div className="w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12 md:gap-16">
+      <div className="w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 md:gap-16">
 
         {/* Text */}
         <div className="flex flex-col items-start text-left flex-1">
-          <div className="inline-flex items-center gap-1.5 border border-foreground/15 bg-background rounded-full px-3 py-1 mb-8">
+          <div className="inline-flex items-center gap-1.5 border border-foreground/15 bg-background rounded-full px-3 py-1 mb-4 md:mb-8">
             <HiMiniFire size={11} className="text-foreground/50" />
             <span className="text-[10px] tracking-[0.25em] uppercase text-foreground/50">
               Codex Agent on Your iPhone
@@ -24,7 +24,7 @@ export function Hero() {
             <span className="block shimmer-text">No Mac required.</span>
           </h1>
 
-          <p className="mt-7 text-foreground/40 max-w-sm text-sm leading-relaxed">
+          <p className="mt-3 md:mt-7 text-foreground/40 max-w-sm text-sm leading-relaxed">
             Connect your GitHub repo, spin up a Codex agent, and code straight
             from your iPhone. Watch every change stream in real time and push
             when you're ready.
@@ -34,7 +34,7 @@ export function Hero() {
             href="https://tally.so/r/b5lYz1"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-9 inline-flex items-center gap-1 bg-foreground text-background text-sm font-medium px-7 py-3 rounded-full hover:opacity-90 transition-opacity"
+            className="mt-5 md:mt-9 inline-flex items-center gap-1 bg-foreground text-background text-sm font-medium px-7 py-3 rounded-full hover:opacity-90 transition-opacity"
           >
             <LuTerminal size={15} strokeWidth={2.5} /> Start Coding
           </a>
