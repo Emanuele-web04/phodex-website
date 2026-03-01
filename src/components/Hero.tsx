@@ -9,7 +9,7 @@ export function Hero() {
 
         {/* Text */}
         <div className="flex flex-col items-start text-left flex-1">
-          <div className="inline-flex items-center gap-1.5 border border-foreground/15 rounded-full px-3 py-1 mb-8">
+          <div className="inline-flex items-center gap-1.5 border border-foreground/15 bg-background rounded-full px-3 py-1 mb-8">
             <HiMiniFire size={11} className="text-foreground/50" />
             <span className="text-[10px] tracking-[0.25em] uppercase text-foreground/50">
               Codex Agent on Your iPhone
@@ -21,7 +21,7 @@ export function Hero() {
             style={{ fontSize: 'clamp(2.2rem, 4.2vw, 5rem)' }}
           >
             <span className="block text-foreground">Code from anywhere.</span>
-            <span className="block text-muted-foreground">No Mac required.</span>
+            <span className="block shimmer-text">No Mac required.</span>
           </h1>
 
           <p className="mt-7 text-foreground/40 max-w-sm text-sm leading-relaxed">
