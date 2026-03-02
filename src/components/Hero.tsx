@@ -1,11 +1,15 @@
 // FILE: Hero.tsx
 // Purpose: Render the landing hero with messaging, CTA actions, and product mockup.
 // Layer: Presentational component
-// Depends on: next/image, react-icons
+// Depends on: next/font/google, next/image, react-icons
 
+import { JetBrains_Mono } from 'next/font/google'
 import Image from 'next/image'
+import { FaXTwitter } from 'react-icons/fa6'
 import { HiMiniFire } from 'react-icons/hi2'
 import { LuArrowRight, LuTerminal } from 'react-icons/lu'
+
+const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'] })
 
 export function Hero() {
   return (
@@ -48,9 +52,11 @@ export function Hero() {
             href="https://x.com/emanueledpt/status/2028572203642388662?s=20"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-3 inline-flex items-center gap-1.5 text-sm text-foreground/70 underline underline-offset-4 hover:text-foreground transition-colors"
+            className={`${jetbrainsMono.className} mt-3 inline-flex items-center gap-1.5 text-xs md:text-sm text-foreground/70 underline underline-offset-4 hover:text-foreground transition-colors`}
           >
-            See latest update <LuArrowRight size={14} />
+            <FaXTwitter size={12} />
+            See latest update
+            <LuArrowRight size={13} />
           </a>
         </div>
 
