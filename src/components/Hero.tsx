@@ -49,7 +49,7 @@ export function Hero() {
             <LuTerminal size={15} strokeWidth={2.5} /> Start Coding
           </a>
           <a
-            href="https://x.com/emanueledpt/status/2029259159594475814?s=20"
+            href="https://x.com/emanueledpt/status/2029988488586662321?s=20"
             target="_blank"
             rel="noopener noreferrer"
             className={`${jetbrainsMono.className} mt-3 inline-flex items-center gap-1.5 text-xs md:text-sm text-foreground/70 underline underline-offset-4 hover:text-foreground transition-colors`}
