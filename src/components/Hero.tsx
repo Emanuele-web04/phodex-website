@@ -1,7 +1,7 @@
 // FILE: Hero.tsx
 // Purpose: Render the landing hero with messaging, CTA actions, and product mockup.
 // Layer: Presentational component
-// Depends on: next/font/google, next/image, react-icons
+// Depends on: next/font/google, next/image, react-icons, GitHub star data helpers
 
 import { JetBrains_Mono } from 'next/font/google'
 import Image from 'next/image'
@@ -9,9 +9,15 @@ import { FaGithub, FaXTwitter } from 'react-icons/fa6'
 import { HiMiniFire } from 'react-icons/hi2'
 import { LuArrowRight, LuTerminal } from 'react-icons/lu'
 
+import { GitHubStarsButton } from '@/components/GitHubStarsButton'
+import { getRemodexStars } from '@/lib/github'
+
 const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'] })
 
-export function Hero() {
+// Fetches the current GitHub stars server-side so the CTA renders with a count immediately.
+export async function Hero() {
+  const initialStars = await getRemodexStars()
+
   return (
     <section className="relative z-20 min-h-[calc(100vh-80px)] flex items-center px-4 md:px-16 lg:px-24">
       <div className="w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 md:gap-16">
@@ -48,15 +54,7 @@ export function Hero() {
             >
               <LuTerminal size={15} strokeWidth={2.5} /> Start Coding
             </a>
-            <a
-              href="https://github.com/Emanuele-web04/remodex"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex h-12 items-center justify-center gap-1.5 rounded-full border border-foreground/15 bg-background/80 px-7 text-sm font-medium text-foreground transition-colors hover:border-foreground/35 hover:bg-foreground/5"
-            >
-              <FaGithub size={15} />
-              Try remote control too
-            </a>
+            <GitHubStarsButton initialStars={initialStars} />
           </div>
 
           {/* Social proof link for the most recent public progress update. */}
