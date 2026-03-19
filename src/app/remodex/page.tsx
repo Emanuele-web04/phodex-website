@@ -1,4 +1,3 @@
-import type { Metadata } from 'next'
 /* eslint-disable @next/next/no-img-element */
 import {
   Cormorant_Garamond,
@@ -33,22 +32,6 @@ const bodyFont = IBM_Plex_Sans({
 })
 const mono = JetBrains_Mono({ subsets: ['latin'] })
 
-export const metadata: Metadata = {
-  title: 'Remodex — Remote Control for Codex',
-  description:
-    'Control Codex from your iPhone. Open-source bridge + iOS app with end-to-end encryption. Local-first, self-host friendly.',
-  openGraph: {
-    title: 'Remodex — Remote Control for Codex',
-    description: 'Control Codex from your iPhone. Open-source bridge + iOS app with end-to-end encryption.',
-    images: [{ url: '/remodex-og1.png', width: 1200, height: 630 }],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Remodex — Remote Control for Codex',
-    description: 'Control Codex from your iPhone. Open-source bridge + iOS app with end-to-end encryption.',
-    images: ['/remodex-og1.png'],
-  },
-}
 
 const FEATURES = [
   {
