@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
+/* eslint-disable @next/next/no-img-element */
 import {
   Cormorant_Garamond,
   IBM_Plex_Sans,
@@ -88,7 +88,7 @@ export default async function RemodexPage() {
       {/* ── Navbar ── */}
       <header className="relative z-20 px-5 sm:px-6 md:px-16 lg:px-24 py-7 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <Image src="/logo.png" alt="Remodex" width={20} height={20} className="rounded-sm" />
+          <img src="/logo.png" alt="Remodex" width={20} height={20} className="rounded-sm" />
           <span className="text-xs font-medium uppercase tracking-[0.28em] text-foreground/80">Remodex</span>
         </div>
         <ThemeToggle />
@@ -158,13 +158,10 @@ export default async function RemodexPage() {
                 maskImage: 'radial-gradient(ellipse 75% 75% at center, black 70%, transparent 100%)',
               }}
             >
-              <Image
+              <img
                 src="/hero.png"
                 alt="Remodex app mockup"
-                width={520}
-                height={620}
                 className="w-[260px] sm:w-[320px] md:w-[420px] lg:w-[480px]"
-                priority
               />
             </div>
           </FadeIn>
@@ -185,21 +182,18 @@ export default async function RemodexPage() {
 
           <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-5">
             {[
-              { src: '/speed.jpg', title: 'Live control', description: 'Fast mode, Plan mode, steer active runs, and queue follow-up prompts — all without restarting.', contain: true },
-              { src: '/giti.jpg', title: 'Git from iPhone', description: 'Commit, push, pull, branch, stash, and inspect diffs. The full git workflow from your pocket.', contain: true },
-              { src: '/connection.png', title: 'Secure pairing', description: 'QR bootstrap with E2E encryption. Trusted devices auto-reconnect — no re-scan needed.', contain: true },
-              { src: '/files-skills.png', title: '@files, $skills, /commands', description: 'Reference files with @, invoke skills with $, run /review, /status, or /subagents to spawn parallel agents.', contain: true },
+              { src: '/speed.jpg', title: 'Live control', description: 'Fast mode, Plan mode, steer active runs, and queue follow-up prompts — all without restarting.' },
+              { src: '/giti.jpg', title: 'Git from iPhone', description: 'Commit, push, pull, branch, stash, and inspect diffs. The full git workflow from your pocket.' },
+              { src: '/connection.png', title: 'Secure pairing', description: 'QR bootstrap with E2E encryption. Trusted devices auto-reconnect — no re-scan needed.' },
+              { src: '/files-skills.png', title: '@files, $skills, /commands', description: 'Reference files with @, invoke skills with $, run /review, /status, or /subagents to spawn parallel agents.' },
             ].map((item, i) => (
               <FadeIn key={item.title} delay={i * 80}>
                 <div className="group rounded-[2rem] border-2 border-foreground/15 bg-card overflow-hidden h-full flex flex-col">
-                  <div className="relative w-full overflow-hidden">
-                    <Image
+                  <div className="relative w-full overflow-hidden max-h-[280px]">
+                    <img
                       src={item.src}
                       alt={item.title}
-                      width={800}
-                      height={500}
-                      sizes="(min-width: 640px) 50vw, 100vw"
-                      className={`w-full h-auto transition-transform duration-500 group-hover:scale-[1.03] ${item.contain ? '' : 'object-cover object-top'}`}
+                      className="w-full h-auto object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
                     />
                     <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-card to-transparent" />
                   </div>
