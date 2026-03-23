@@ -2,186 +2,185 @@
 
 **Last updated:** March 24, 2026
 
-This Privacy Policy explains how the Remodex mobile application ("App"), developed by Emanuele Di Pietro ("Developer", "we", "us", or "our"), handles your information. We built Remodex with a local-first, privacy-respecting architecture. This policy describes what data we collect, why, and how it is protected.
+This Privacy Policy explains how the Remodex mobile application ("App"), developed by Emanuele Di Pietro ("Developer", "we", "us", or "our"), handles your information. Remodex is designed to let you control a Codex runtime on your Mac from your iPhone. Most conversation and workspace activity is processed on your paired Mac, but the App Store version can also use developer-operated relay and notification infrastructure to connect your devices and deliver notifications.
 
 ---
 
 ## 1. Overview
 
-Remodex is a local-first iOS app. This means:
+Remodex is a local-first remote companion for Codex on your Mac. In practice, this means:
 
-- Your data primarily lives on your devices (iPhone and paired Mac).
-- We do not operate user accounts or cloud databases.
-- We do not collect analytics, telemetry, or usage statistics.
-- We do not serve advertisements.
-- Communication between your iPhone and Mac is end-to-end encrypted.
+- Your conversations, repository actions, and workspace interactions are primarily processed on your paired Mac.
+- We do not require you to create a Remodex account.
+- We do not run analytics, advertising, or cross-app tracking.
+- We do not sell your personal information.
+- After the secure session is established, message contents sent between your iPhone and Mac are end-to-end encrypted.
+- The App Store build may use a developer-operated hosted relay and hosted push infrastructure to help your iPhone reach your paired Mac and receive completion notifications.
 
 ## 2. Information We Collect
 
-### 2.1 Information You Provide
+### 2.1 Information You Provide Through the App
 
-- **Chat messages** — Sent to your paired Mac's Codex runtime for processing. Encrypted locally on your iPhone (AES, Keychain-backed keys). Transmitted over an end-to-end encrypted channel to your Mac.
-
-- **Voice recordings** — Temporarily captured when you use voice mode. Stored as a temporary file on your iPhone, deleted after transcription. Sent to OpenAI (ChatGPT) for speech-to-text conversion.
-
-- **Photo attachments** — Attached to messages when you use the camera or photo library. Transmitted to your paired Mac via the encrypted channel.
-
-- **Git operations** — Commands you initiate (commit, push, pull, branch switch). Executed on your paired Mac. Not stored separately on the iPhone.
+- **Chat messages and prompts** — Your messages are sent from the iPhone to your paired Mac for processing. After the secure transport handshake is complete, the relay forwards encrypted payloads and cannot read message contents.
+- **Photo attachments** — Images you attach from the camera or photo library are sent to your paired Mac over the secure channel.
+- **Voice recordings** — When you use voice mode, the App records a temporary WAV file on your iPhone and uploads that audio directly from the iPhone to OpenAI/ChatGPT for transcription. The request is authenticated with a ChatGPT token resolved from your paired Mac over the encrypted Remodex channel.
+- **Git operations** — Commands you initiate from the App, such as commit, pull, push, branch, or status actions, are executed on your paired Mac.
 
 ### 2.2 Information Collected Automatically
 
-- **Device push token (APNs)** — Enables push notifications when a Codex task finishes. Registered with Apple and shared with your paired Mac's bridge service. Not sent to any other server.
+- **Pairing and identity keys** — The App generates cryptographic identity material used for secure pairing and trusted reconnect.
+- **Relay and trusted-device metadata** — The App stores relay session data, trusted Mac identifiers, and reconnect metadata needed to restore a secure connection.
+- **Push notification registration data** — If you enable notifications, the App stores your APNs token locally and sends notification registration data through your paired Mac to the configured push service. This can include your APNs token, notification preference state, session metadata, thread identifiers, and notification payload fields needed to deliver a completion alert.
+- **Subscription and purchase state** — We use RevenueCat and Apple to determine whether your Pro entitlement is active. This includes entitlement status and related purchase metadata exposed by those services to the app.
+- **Connection metadata** — If you use a hosted relay, the relay can process network and session metadata needed to route traffic, maintain trusted reconnect, and operate the service.
 
-- **Subscription status** — Verifies your Pro entitlement. Managed by RevenueCat and Apple. We receive entitlement status (active/inactive), purchase dates, and management URL. We do not receive your payment method or billing details.
+### 2.3 Information We Do Not Collect for Analytics or Advertising
 
-- **Pairing identity keys** — Cryptographic key pair generated on first launch for secure pairing. Stored exclusively in the iOS Keychain on your device. The public key is shared with your paired Mac during the QR handshake.
+- We do **not** collect analytics, telemetry, advertising profiles, or behavioral tracking data.
+- We do **not** use third-party advertising SDKs.
+- We do **not** track you across other companies' apps or websites.
+- We do **not** require your name, phone number, or email address to use the App.
 
-### 2.3 Information We Do Not Collect
+If you contact us directly, we will of course receive whatever information you include in that message.
 
-- We do **not** collect your name, email address, or phone number.
-- We do **not** collect location data.
-- We do **not** collect contacts, calendar, or health data.
-- We do **not** collect browsing history.
-- We do **not** use analytics, crash reporting, or advertising SDKs.
-- We do **not** create advertising profiles or track you across apps.
+## 3. How We Use Information
 
-## 3. How Your Data Is Used
+We use the information above only to operate and secure Remodex, including:
 
-- **Providing the core App experience** — Chat messages, voice recordings, photo attachments, git commands.
-- **Securing communication** — Pairing identity keys, relay session tokens.
-- **Delivering push notifications** — APNs device token.
-- **Managing your subscription** — Subscription status via RevenueCat.
+- pairing your iPhone with your Mac
+- routing encrypted traffic between your iPhone and Mac
+- performing trusted reconnect
+- delivering optional push notifications
+- checking and restoring subscription entitlements
+- transcribing voice input when you explicitly use voice mode
+- maintaining app security, stability, and abuse prevention for the hosted infrastructure
 
-We use your data solely to provide and improve the App's functionality. We do not sell, rent, or share your personal data with third parties for marketing or advertising purposes.
+We do not use your information for advertising, profiling, or resale.
 
-### 3.1 Legal Basis for Processing (GDPR)
+### 3.1 GDPR Legal Bases
 
-If you are in the European Economic Area, we process your data on the following legal bases:
+If you are in the European Economic Area, we rely on the following legal bases:
 
-- **Contract performance:** Processing necessary to provide the App's core features (chat relay, voice transcription, git operations, push notifications).
-- **Legitimate interest:** Processing necessary for security (encryption key management, pairing verification).
-- **Consent:** Camera, microphone, and photo library access — granted via iOS permission prompts and revocable at any time in Settings.
+- **Contract performance** — to provide the App's core features, including pairing, relay transport, notifications, voice transcription, and subscription handling
+- **Legitimate interests** — to secure the service, prevent abuse, maintain relay connectivity, and protect users and infrastructure
+- **Consent** — for permissions such as camera, microphone, photo library, and local network access
 
-### 3.2 Third-Party AI Disclosure
+## 4. Services That Process Data
 
-When you use voice mode, your audio recording is sent to OpenAI (ChatGPT) for AI-powered speech-to-text transcription. This is the only instance where your data is processed by a third-party AI service. No other user data (messages, photos, git operations) is sent to any AI provider by the App — those are processed locally on your paired Mac.
+### 4.1 Developer-Operated Remodex Infrastructure
 
-## 4. Third-Party Services
+The App Store build can use developer-operated infrastructure for:
 
-The App integrates with the following third-party services, each with their own privacy practices:
+- **Hosted relay transport** — to route traffic between your iPhone and paired Mac when direct connectivity is not used
+- **Trusted reconnect resolution** — to help your already-paired iPhone locate the current live session for your trusted Mac
+- **Hosted push delivery** — to register your APNs token and send completion notifications when notifications are enabled
 
-### 4.1 RevenueCat
+This infrastructure may process:
 
-Used for subscription and in-app purchase management. RevenueCat receives your anonymized App User ID (generated by RevenueCat, not linked to personal identity), purchase transactions, and device type. RevenueCat does not receive your name, email, or any message content.
+- session identifiers and trusted-device metadata
+- connection metadata such as IP address, timestamps, and route-level request data
+- secure control messages needed to establish the encrypted session
+- push registration data and notification payload fields required to deliver alerts
 
-- Privacy policy: [www.revenuecat.com/privacy](https://www.revenuecat.com/privacy)
+Once the secure session is active, the hosted relay does **not** decrypt your Remodex application payloads.
 
-### 4.2 OpenAI (ChatGPT)
+### 4.2 OpenAI / ChatGPT
 
-When you use voice mode, your audio recording is sent to OpenAI's transcription API for speech-to-text conversion. This request is authenticated with an ephemeral token obtained through your paired Mac. The audio is not stored by the App after transcription. OpenAI's data handling practices apply to the audio they receive.
+When you use voice mode, your audio recording is sent to OpenAI/ChatGPT for speech-to-text transcription.
 
 - Privacy policy: [openai.com/privacy](https://openai.com/privacy)
 
-### 4.3 Apple
+### 4.3 RevenueCat
 
-- **App Store:** Processes all payments and subscription billing.
-- **APNs:** Delivers push notifications to your device.
-- Apple's privacy policy applies: [apple.com/privacy](https://www.apple.com/privacy/)
+RevenueCat is used for subscription and entitlement management. RevenueCat may process an anonymous app user identifier, entitlement status, purchase information, device/app metadata, and subscription management URLs.
+
+- Privacy policy: [www.revenuecat.com/privacy](https://www.revenuecat.com/privacy)
+
+### 4.4 Apple
+
+Apple provides:
+
+- App Store billing and subscription management
+- APNs push delivery
+- iOS permission and platform services used by the app
+
+- Privacy policy: [apple.com/privacy](https://www.apple.com/privacy/)
 
 ## 5. Data Storage and Security
 
-### 5.1 On-Device Storage
+### 5.1 On Your iPhone
 
-- **Keychain:** Pairing keys, relay session credentials, and encryption keys are stored in the iOS Keychain, Apple's hardware-backed secure storage.
-- **Encrypted local cache:** Message history is AES-encrypted with Keychain-backed keys and stored on the device file system.
-- **UserDefaults:** Non-sensitive preferences only (font selection, onboarding state).
-- **Temporary files:** Voice recordings are created as temporary files and deleted after use.
+- **Keychain** — sensitive values such as identity keys, pairing state, relay credentials, and encryption keys
+- **Encrypted message cache** — chat history is stored locally in encrypted form using a Keychain-backed key
+- **UserDefaults** — non-sensitive preferences and interface settings
+- **Temporary files** — voice recordings are stored temporarily during capture/transcription
 
-### 5.2 In Transit
+### 5.2 On Your Mac
 
-- All communication between your iPhone and paired Mac travels over an **end-to-end encrypted** channel using Curve25519 key agreement.
-- The relay (if used) cannot read message contents — it forwards encrypted payloads only.
-- Voice transcription requests are sent over HTTPS (TLS) to OpenAI.
-- RevenueCat API calls use HTTPS (TLS).
+Your paired Mac runs the local bridge and Codex runtime. Chat handling, git operations, and workspace actions are performed there.
 
-### 5.3 On Your Mac
+### 5.3 On Hosted Relay / Push Infrastructure
 
-- Messages and Codex interactions are processed locally on your Mac by the bridge service.
-- The bridge runs locally and does not upload your data to any cloud service.
+When the hosted relay or hosted push service is used, the server side may keep limited operational state such as active session state, trusted reconnect metadata, push registration data, and dedupe records needed to deliver notifications and prevent duplicate sends.
+
+### 5.4 In Transit
+
+- The iPhone and Mac establish an end-to-end encrypted session using modern cryptography.
+- The relay can observe connection metadata and secure-session setup traffic, but not encrypted application payloads after the secure session is established.
+- Voice transcription and subscription requests are sent over HTTPS/TLS.
 
 ## 6. Data Retention
 
-- **Chat history:** Stored locally on your iPhone in encrypted form. Cleared when you unpair or delete the App.
-- **Voice recordings:** Deleted from the device immediately after transcription completes.
-- **Pairing keys:** Persist in the Keychain until you unpair or delete the App.
-- **Subscription data:** Retained by RevenueCat and Apple per their respective policies.
+- **Chat history on iPhone** — stored locally until the app's local storage is removed. Unpairing or forgetting a Mac does **not** automatically erase local chat history.
+- **Voice recordings** — temporary voice files are deleted by the app after transcription completes or fails.
+- **Pairing and trusted-device state** — retained in local app storage and Keychain until removed by app actions or platform behavior.
+- **Hosted push registration state** — when hosted push is enabled, push registration records may be retained for up to 30 days after their latest update.
+- **Push dedupe records** — notification dedupe keys may be retained for up to 24 hours.
+- **Subscription records** — retained by Apple and RevenueCat according to their own policies.
 
-We do not maintain server-side databases of your data.
+We do not maintain a cloud chat history database for your message contents.
 
-## 7. Your Rights and Choices
+## 7. Your Choices
 
 ### 7.1 Permissions
 
-You can revoke any device permission (camera, microphone, photo library, local network) at any time in iOS Settings. Revoking a permission disables the associated feature but does not affect core functionality.
+You can revoke camera, microphone, photo library, and local network permissions at any time in iOS Settings. Doing so disables the related feature.
 
 ### 7.2 Subscription Management
 
-You can view, modify, or cancel your subscription at any time through your Apple ID account settings or via the "Manage" link in the App's settings.
+You can manage or cancel your subscription through Apple account settings or through the in-app management link when available.
 
-### 7.3 Data Deletion
+### 7.3 Local Data and Reset
 
-Because data is stored locally on your device:
+- Deleting the app removes ordinary app-container files such as local encrypted chat history and temporary files.
+- Keychain items are managed by iOS separately from ordinary app files and may persist differently, including across reinstall scenarios.
+- If you want to reset pairing/trusted-device state before deleting or reinstalling the app, use the in-app forget/unpair controls first.
 
-- **Uninstalling the App** removes all locally stored data, including encrypted chat history, cached preferences, and temporary files.
-- **Keychain items** associated with the App are removed when the App is deleted.
-- To request deletion of data held by RevenueCat, contact us or RevenueCat directly.
+## 8. Privacy Rights
 
-### 7.4 European Users (GDPR)
+Depending on your jurisdiction, you may have rights to access, correct, delete, restrict, or object to the processing of personal information, and to request portability where applicable.
 
-If you are located in the European Economic Area, you have additional rights under the General Data Protection Regulation, including the right to:
+Because Remodex is primarily local-first, much of your data remains under your direct control on your devices. For requests relating to data handled by our hosted relay/push infrastructure, or for guidance on RevenueCat/OpenAI/Apple data handled by those services, contact us using the details below.
 
-- **Access** your personal data.
-- **Rectify** inaccurate personal data.
-- **Erase** your personal data ("right to be forgotten").
-- **Restrict** processing of your personal data.
-- **Data portability** — receive your data in a structured, machine-readable format.
-- **Object** to processing based on legitimate interest.
-- **Withdraw consent** at any time, without affecting the lawfulness of processing before withdrawal.
+### 8.1 California Notice
 
-Because the App is local-first and does not maintain centralized user databases, most of your data is already under your direct control on your device. For any GDPR-related requests, contact us using the details in Section 12.
+We do not sell or share personal information for cross-context behavioral advertising.
 
-### 7.5 California Users (CCPA/CPRA)
+## 9. Children's Privacy
 
-If you are a California resident, the California Consumer Privacy Act (as amended by the CPRA) provides you with additional rights:
+The App is not directed to children under 13, or the minimum age required by local law. We do not knowingly collect personal information from children.
 
-- **Right to know** what personal information is collected, used, and disclosed.
-- **Right to delete** personal information held about you.
-- **Right to opt-out** of the sale or sharing of personal information.
-- **Right to non-discrimination** for exercising your privacy rights.
+## 10. International Transfers
 
-**We do not sell or share your personal information** as defined under the CCPA/CPRA. We do not use your data for cross-context behavioral advertising. Because Remodex is local-first, the personal information described in Section 2 is stored on your device and is under your control.
-
-To exercise any of these rights, contact us using the details in Section 12.
-
-## 8. Children's Privacy
-
-The App is not directed at children under 13 (or the applicable age in your jurisdiction). We do not knowingly collect personal information from children. If you believe a child has provided us with personal data, please contact us so we can take appropriate action.
-
-## 9. Tracking and Advertising
-
-The App does **not** track you across other companies' apps or websites. We do not participate in ad networks or data brokers. We do not use the AppTrackingTransparency framework because no tracking occurs.
-
-## 10. International Data Transfers
-
-Voice recordings sent to OpenAI for transcription may be processed on servers outside your country of residence. RevenueCat may process subscription data on servers in the United States. These transfers are necessary to provide the App's functionality. All transfers occur over encrypted connections.
+Depending on where you use the App and where service providers or hosted infrastructure are located, data processed by OpenAI, RevenueCat, Apple, or developer-operated hosted services may be handled outside your country of residence.
 
 ## 11. Changes to This Policy
 
-We may update this Privacy Policy from time to time. The "Last updated" date at the top will be revised accordingly. We encourage you to review this policy periodically. Continued use of the App after changes constitutes acceptance of the updated policy.
+We may update this Privacy Policy from time to time. When we do, we will update the "Last updated" date above.
 
 ## 12. Contact
 
-If you have questions about this Privacy Policy or want to exercise your data rights, you can reach us at:
+If you have questions about this Privacy Policy or want to exercise your privacy rights, you can reach us at:
 
 - **Email:** emandipietro@gmail.com
 - **GitHub:** [github.com/Emanuele-web04/remodex](https://github.com/Emanuele-web04/remodex)
