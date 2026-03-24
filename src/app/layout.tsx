@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const SITE_URL = "https://remodex.phodex.app"
+const SITE_URL = "https://phodex.app"
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     description: "Control Codex from your iPhone. Open-source bridge + iOS app with end-to-end encryption.",
     url: SITE_URL,
     siteName: "Remodex",
-    images: [{ url: "https://remodex.phodex.app/remodex-og1.png", width: 1200, height: 630, alt: "Remodex — Remote Control for Codex" }],
+    images: [{ url: "https://phodex.app/remodex-og1.png", width: 1200, height: 630, alt: "Remodex — Remote Control for Codex" }],
     type: "website",
     locale: "en_US",
   },
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Remodex — Remote Control for Codex",
     description: "Control Codex from your iPhone. Open-source bridge + iOS app with end-to-end encryption.",
-    images: [{ url: "https://remodex.phodex.app/remodex-og1.png", alt: "Remodex — Remote Control for Codex" }],
+    images: [{ url: "https://phodex.app/remodex-og1.png", alt: "Remodex — Remote Control for Codex" }],
   },
   robots: {
     index: true,
