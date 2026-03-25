@@ -151,6 +151,11 @@
   }
 }
 
+/* ─── Scrollbar hide utility ────── */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 /* ─── Remodex visual system (neutral, Tailwind tokens) ────── */
 
 .remodex-shell::before,

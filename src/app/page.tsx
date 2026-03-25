@@ -20,6 +20,7 @@ import { ThemeToggle } from '@/components/ThemeToggle'
 import { TerminalGrid } from '@/components/TerminalGrid'
 import { FadeIn } from '@/components/remodex/FadeIn'
 import { CopyButton } from '@/components/remodex/CopyButton'
+import { AppPreview } from '@/components/remodex/AppPreview'
 import { getRemodexStars, REMODEX_REPO_URL } from '@/lib/github'
 
 const displayFont = Cormorant_Garamond({
@@ -150,6 +151,25 @@ export default async function RemodexPage() {
                 className="w-[260px] sm:w-[320px] md:w-[420px] lg:w-[480px]"
               />
             </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ── App Store Preview ── */}
+      <section className="relative z-20 py-24 md:py-36">
+        <div className="w-full max-w-7xl mx-auto px-5 sm:px-6 md:px-16 lg:px-24 mb-14">
+          <FadeIn>
+            <span className={`${mono.className} text-[11px] tracking-[0.3em] uppercase text-foreground/30`}>
+              Preview
+            </span>
+            <h2 className={`${displayFont.className} mt-4 text-3xl sm:text-4xl md:text-5xl leading-[0.92] tracking-[-0.035em] text-foreground`}>
+              See it in action.
+            </h2>
+          </FadeIn>
+        </div>
+        <div className="w-full max-w-7xl mx-auto px-5 sm:px-6 md:px-16 lg:px-24">
+          <FadeIn delay={100}>
+            <AppPreview />
           </FadeIn>
         </div>
       </section>
