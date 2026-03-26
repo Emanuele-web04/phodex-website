@@ -3,6 +3,11 @@ import { Geist, Geist_Mono, Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
 
+/* FILE: layout.tsx
+   Purpose: Define the app shell, metadata, and the earliest possible theme bootstrap for the site.
+   Layer: App root layout
+   Depends on: ThemeProvider and the Tailwind dark class consumed across the app */
+
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
 const geistSans = Geist({
@@ -16,6 +21,14 @@ const geistMono = Geist_Mono({
 });
 
 const SITE_URL = "https://phodex.app"
+const themeBootstrapScript = `
+  (() => {
+    const root = document.documentElement;
+    const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    root.classList.toggle('dark', theme === 'dark');
+    root.style.colorScheme = theme;
+  })();
+`
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -68,7 +81,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`dark ${inter.variable}`} suppressHydrationWarning>
+    <html lang="en" className={inter.variable} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeBootstrapScript }} />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ThemeProvider>
           {children}
