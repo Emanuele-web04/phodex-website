@@ -29,6 +29,7 @@ const displayFont = Cormorant_Garamond({
 })
 const mono = JetBrains_Mono({ subsets: ['latin'] })
 
+const REMODEX_APP_STORE_URL = 'https://apps.apple.com/us/app/remodex-remote-ai-coding/id6760243963'
 
 const FEATURES = [
   {
@@ -125,11 +126,16 @@ export default async function RemodexPage() {
 
             <FadeIn delay={240} className="w-full">
               <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap w-full">
-                {/* Keep the App Store CTA visible while the listing is not live yet. */}
-                <div className="inline-flex h-12 w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-foreground px-7 text-sm font-medium text-background font-sans cursor-default">
+                {/* Primary CTA points to the live App Store listing from the hero. */}
+                <a
+                  href={REMODEX_APP_STORE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-12 w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-foreground px-7 text-sm font-medium text-background font-sans transition-opacity hover:opacity-85"
+                >
                   <FaApple size={17} />
-                  App Store soon
-                </div>
+                  Download Now
+                </a>
                 <div className={`${mono.className} inline-flex h-12 w-full sm:w-auto items-center justify-center gap-3 rounded-full border border-foreground/15 bg-muted px-4 sm:px-5 text-xs sm:text-sm text-foreground/60`}>
                   <span className="truncate">npm i -g remodex@latest</span>
                   <CopyButton text="npm i -g remodex@latest" />
@@ -327,11 +333,16 @@ export default async function RemodexPage() {
 
           <FadeIn delay={120}>
             <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
-              {/* Mirror the pending App Store state in the closing CTA. */}
-              <div className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-foreground px-8 text-sm font-medium text-background font-sans cursor-default">
+              {/* Repeat the live App Store CTA in the closing section. */}
+              <a
+                href={REMODEX_APP_STORE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-foreground px-8 text-sm font-medium text-background font-sans transition-opacity hover:opacity-85"
+              >
                 <FaApple size={17} />
-                App Store soon
-              </div>
+                Download Now
+              </a>
               <a
                 href={REMODEX_REPO_URL}
                 target="_blank"
