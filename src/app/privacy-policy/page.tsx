@@ -8,6 +8,7 @@ import { join } from 'path'
 import type { Metadata } from 'next'
 
 import { LegalPage } from '@/components/remodex/LegalPage'
+import { REMODEX_OG_IMAGE } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Data Protection Notice',
@@ -15,11 +16,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Data Protection Notice — Remodex',
     description: 'How Remodex handles your data. Local-first architecture, end-to-end encryption, no accounts, no analytics, no tracking.',
+    images: [REMODEX_OG_IMAGE],
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
     title: 'Data Protection Notice — Remodex',
     description: 'How Remodex handles your data. Local-first architecture, end-to-end encryption, no accounts, no analytics, no tracking.',
+    images: [REMODEX_OG_IMAGE.url],
   },
 }
 
