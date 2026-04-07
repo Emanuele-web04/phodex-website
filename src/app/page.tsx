@@ -5,7 +5,7 @@ import {
   Cormorant_Garamond,
   JetBrains_Mono,
 } from 'next/font/google'
-import { FaApple, FaGithub, FaStar } from 'react-icons/fa6'
+import { FaApple, FaGithub, FaProductHunt, FaStar } from 'react-icons/fa6'
 import {
   LuArrowRight,
   LuGitBranch,
@@ -91,23 +91,36 @@ export default async function RemodexPage() {
         <div className="w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10 md:gap-16">
           <div className="flex flex-col items-start flex-1 w-full md:max-w-xl">
             <FadeIn>
-              <a
-                href={REMODEX_REPO_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 border border-foreground/15 bg-muted rounded-full px-3 py-1.5 mb-8 transition-colors hover:border-foreground/25"
-              >
-                <FaGithub size={11} className="text-foreground/50" />
-                <span className={`${mono.className} text-[10px] tracking-[0.22em] uppercase text-foreground/50`}>
-                  Open source on GitHub
-                </span>
-                {typeof stars === 'number' && (
-                  <span className="inline-flex items-center gap-1 text-foreground/40">
-                    <FaStar size={8} />
-                    <span className={`${mono.className} text-[10px]`}>{stars}</span>
+              <div className="flex flex-wrap items-center gap-2 mb-8">
+                <a
+                  href={REMODEX_REPO_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 border border-foreground/15 bg-muted rounded-full px-3 py-1.5 transition-colors hover:border-foreground/25"
+                >
+                  <FaGithub size={11} className="text-foreground/50" />
+                  <span className={`${mono.className} text-[10px] tracking-[0.22em] uppercase text-foreground/50`}>
+                    Open source on GitHub
                   </span>
-                )}
-              </a>
+                  {typeof stars === 'number' && (
+                    <span className="inline-flex items-center gap-1 text-foreground/40">
+                      <FaStar size={8} />
+                      <span className={`${mono.className} text-[10px]`}>{stars}</span>
+                    </span>
+                  )}
+                </a>
+                <a
+                  href="https://www.producthunt.com/products/remodex-codex-remote-control?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-remodex-2"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 border border-foreground/15 bg-muted rounded-full px-3 py-1.5 transition-colors hover:border-foreground/25"
+                >
+                  <FaProductHunt size={11} className="text-foreground/50" />
+                  <span className={`${mono.className} text-[10px] tracking-[0.22em] uppercase text-foreground/50`}>
+                    Featured on Product Hunt
+                  </span>
+                </a>
+              </div>
             </FadeIn>
 
             <FadeIn delay={80}>
@@ -124,34 +137,8 @@ export default async function RemodexPage() {
               </p>
             </FadeIn>
 
-            <FadeIn delay={220}>
-              <a
-                href="https://www.producthunt.com/products/remodex-codex-remote-control?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-remodex-2"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-7 inline-block transition-transform hover:scale-105"
-              >
-                <img
-                  src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1112672&theme=dark&t=1775039015766"
-                  alt="Remodex - Control Codex on your iPhone | Product Hunt"
-                  width={180}
-                  height={39}
-                  className="rounded-full dark:hidden"
-                  style={{ width: 190, height: 'auto' }}
-                />
-                <img
-                  src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1112672&theme=light&t=1775039015766"
-                  alt="Remodex - Control Codex on your iPhone | Product Hunt"
-                  width={190}
-                  height={41}
-                  className="rounded-full hidden dark:block"
-                  style={{ width: 190, height: 'auto' }}
-                />
-              </a>
-            </FadeIn>
-
             <FadeIn delay={300} className="w-full">
-              <div className="mt-2 flex flex-col gap-3 sm:flex-row sm:flex-wrap w-full">
+              <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap w-full">
                 {/* Primary CTA points to the live App Store listing from the hero. */}
                 <a
                   href={REMODEX_APP_STORE_URL}
