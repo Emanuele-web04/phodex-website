@@ -13,6 +13,9 @@ import { REMODEX_OG_IMAGE } from '@/lib/site'
 export const metadata: Metadata = {
   title: 'Terms of Use',
   description: 'Terms of Use for the Remodex iOS app. Subscriptions, acceptable use, open-source licensing, and legal information.',
+  alternates: {
+    canonical: '/terms',
+  },
   openGraph: {
     title: 'Terms of Use — Remodex',
     description: 'Terms of Use for the Remodex iOS app. Subscriptions, acceptable use, open-source licensing, and legal information.',

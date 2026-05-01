@@ -1,18 +1,26 @@
 import type { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const lastModified = new Date()
+
   return [
     {
-      url: 'https://www.phodex.app',
-      lastModified: new Date(),
+      url: 'https://www.remodex.site',
+      lastModified,
       changeFrequency: 'weekly',
       priority: 1,
     },
     {
-      url: 'https://www.phodex.app/remodex',
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
+      url: 'https://www.remodex.site/privacy-policy',
+      lastModified,
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    {
+      url: 'https://www.remodex.site/terms',
+      lastModified,
+      changeFrequency: 'yearly',
+      priority: 0.3,
     },
   ]
 }

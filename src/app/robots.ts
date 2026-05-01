@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://www.phodex.app/sitemap.xml',
+    sitemap: 'https://www.remodex.site/sitemap.xml',
   }
 }

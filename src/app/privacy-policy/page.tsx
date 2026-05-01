@@ -13,6 +13,9 @@ import { REMODEX_OG_IMAGE } from '@/lib/site'
 export const metadata: Metadata = {
   title: 'Data Protection Notice',
   description: 'How Remodex handles your data. Local-first architecture, end-to-end encryption, no accounts, no analytics, no tracking.',
+  alternates: {
+    canonical: '/privacy-policy',
+  },
   openGraph: {
     title: 'Data Protection Notice — Remodex',
     description: 'How Remodex handles your data. Local-first architecture, end-to-end encryption, no accounts, no analytics, no tracking.',
