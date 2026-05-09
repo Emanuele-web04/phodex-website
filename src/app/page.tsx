@@ -5,10 +5,9 @@ import {
   Cormorant_Garamond,
   JetBrains_Mono,
 } from 'next/font/google'
-import { FaApple, FaGithub, FaProductHunt, FaStar } from 'react-icons/fa6'
+import { FaAndroid, FaApple, FaGithub, FaProductHunt, FaStar } from 'react-icons/fa6'
 import {
   LuArrowRight,
-  LuBadgeCheck,
   LuGitBranch,
   LuMonitor,
   LuPlay,
@@ -154,7 +153,7 @@ export default async function RemodexPage() {
                   href="/android-beta"
                   className="inline-flex h-12 w-full sm:w-auto items-center justify-center gap-2 rounded-full border border-foreground/15 px-7 text-sm font-medium text-foreground/60 transition-colors hover:border-foreground/30 hover:text-foreground font-sans"
                 >
-                  <LuBadgeCheck size={17} strokeWidth={2} />
+                  <FaAndroid size={17} />
                   Android Beta
                 </a>
                 <div className={`${mono.className} inline-flex h-12 w-full sm:w-auto items-center justify-center gap-3 rounded-full border border-foreground/15 bg-muted px-4 sm:px-5 text-xs sm:text-sm text-foreground/60`}>
