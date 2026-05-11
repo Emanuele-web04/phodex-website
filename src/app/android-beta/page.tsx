@@ -17,7 +17,7 @@ const mono = JetBrains_Mono({ subsets: ['latin'] })
 const ANDROID_GROUP_URL = 'https://groups.google.com/g/remodex-beta-testers'
 const ANDROID_TESTER_URL = 'https://play.google.com/apps/testing/com.remodex.mobile'
 const ANDROID_INSTALL_URL = 'https://play.google.com/store/apps/details?id=com.remodex.mobile'
-const DESKTOP_RELAY_URL = 'https://drive.google.com/file/d/1eWx0o0ZhULDAMZ6IrLILsf-XY8hazuVJ/view?usp=sharing'
+const DESKTOP_RELAY_URL = 'https://github.com/Stivy-01/remodex/releases/tag/Remodex-Host-Beta'
 const REMODEX_GITHUB_URL = 'https://github.com/Stivy-01/remodex'
 
 const STEPS = [
