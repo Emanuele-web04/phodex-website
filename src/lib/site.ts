@@ -17,6 +17,8 @@ export const REMODEX_NPM_INSTALL_CMD = 'npm i -g remodex@latest'
 
 export const REMODEX_HERO_IMAGE = '/hero-phones.png'
 
+export const REMODEX_ICON_URL = '/icon.png'
+
 export const REMODEX_ANDROID_BETA_PATH = '/android-beta'
 
 export const REMODEX_PRO_PRICE_LABEL = 'Pro from $3.99/mo'

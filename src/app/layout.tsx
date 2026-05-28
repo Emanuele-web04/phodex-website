@@ -48,10 +48,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'Emanuele Di Pietro' }],
   creator: 'Remodex',
   icons: {
-    icon: [
-      { url: '/favicon.ico', sizes: 'any' },
-      { url: '/icon.png', type: 'image/png', sizes: '512x512' },
-    ],
+    icon: { url: '/icon.png', type: 'image/png' },
     apple: '/icon.png',
   },
   alternates: { canonical: '/' },

@@ -11,6 +11,8 @@ type SectionHeaderProps = {
   as?: SectionHeaderTag
   align?: 'center' | 'start'
   className?: string
+  titleClassName?: string
+  subtitleClassName?: string
 }
 
 const TITLE_SIZE: Record<SectionHeaderVariant, string> = {
@@ -31,6 +33,8 @@ export function SectionHeader({
   as,
   align = 'center',
   className = '',
+  titleClassName = '',
+  subtitleClassName = '',
 }: SectionHeaderProps) {
   const HeadingTag: SectionHeaderTag = as ?? (variant === 'display' ? 'h1' : 'h2')
   const headingClass = variant === 'display' ? 'rx-display' : 'rx-title'
@@ -39,8 +43,10 @@ export function SectionHeader({
 
   return (
     <div className={`${alignmentClass} ${className}`.trim()}>
-      <HeadingTag className={`${headingClass} ${TITLE_SIZE[variant]}`}>{title}</HeadingTag>
-      <p className={`rx-dotted ${SUBTITLE_SIZE[variant]}`}>{subtitle}</p>
+      <HeadingTag className={`${headingClass} ${TITLE_SIZE[variant]} ${titleClassName}`.trim()}>
+        {title}
+      </HeadingTag>
+      <p className={`rx-dotted ${SUBTITLE_SIZE[variant]} ${subtitleClassName}`.trim()}>{subtitle}</p>
       {lead ? (
         <p className={`max-w-md ${leadAlignment}`.trim()}>{lead}</p>
       ) : null}

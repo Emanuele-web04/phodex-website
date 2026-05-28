@@ -1,5 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 
+import { REMODEX_ICON_URL } from '@/lib/site'
+
 const SIZES = {
   nav: 24,
   xs: 16,
@@ -18,7 +20,7 @@ export function AppIcon({ size = 'nav', className = '' }: AppIconProps) {
 
   return (
     <img
-      src="/icon.png"
+      src={REMODEX_ICON_URL}
       alt=""
       width={px}
       height={px}
