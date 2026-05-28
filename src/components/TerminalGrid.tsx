@@ -53,8 +53,6 @@ export function TerminalGrid() {
 
       ctx.clearRect(0, 0, innerWidth, innerHeight)
 
-      const isDark = document.documentElement.classList.contains('dark')
-      const r = isDark ? 255 : 0
       ctx.font = '10px monospace'
       ctx.textAlign = 'center'
       ctx.textBaseline = 'middle'
@@ -69,7 +67,7 @@ export function TerminalGrid() {
           const fade = 1 - (row / cutoff)
           const alpha = MOBILE_ALPHA * fade
           if (alpha < 0.005) continue
-          const style = `rgba(${r},${r},${r},${alpha.toFixed(3)})`
+          const style = `rgba(0,0,0,${alpha.toFixed(3)})`
           for (let col = 0; col < cols; col++) {
             const i = rowOff + col
             if (now - stamps[i] > CHANGE_MS + offsets[i]) {
@@ -112,7 +110,7 @@ export function TerminalGrid() {
             }
 
             const intensity = 1 - Math.sqrt(distSq) / RADIUS
-            ctx.fillStyle = `rgba(${r},${r},${r},${(intensity * MAX_ALPHA).toFixed(2)})`
+            ctx.fillStyle = `rgba(0,0,0,${(intensity * MAX_ALPHA).toFixed(2)})`
             ctx.fillText(CHARS[chars[i]], x, y)
           }
         }

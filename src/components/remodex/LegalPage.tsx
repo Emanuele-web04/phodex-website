@@ -1,49 +1,26 @@
 /* eslint-disable @next/next/no-img-element */
-import { JetBrains_Mono } from 'next/font/google'
 import ReactMarkdown from 'react-markdown'
-import Link from 'next/link'
 
-import { ThemeToggle } from '@/components/ThemeToggle'
-import { REMODEX_REPO_URL } from '@/lib/github'
+import { SiteFooter } from '@/components/remodex/SiteFooter'
+import { SiteHeader } from '@/components/remodex/SiteHeader'
+import { getRemodexStars } from '@/lib/github'
 
-const mono = JetBrains_Mono({ subsets: ['latin'] })
+export async function LegalPage({ content }: { content: string }) {
+  const stars = await getRemodexStars()
 
-export function LegalPage({ content }: { content: string }) {
   return (
-    <div className="relative min-h-screen bg-background">
-      {/* ── Navbar ── */}
-      <header className="relative z-20 px-5 sm:px-6 md:px-16 lg:px-24 py-7 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
-          <img src="/icon.png" alt="Remodex" width={20} height={20} className="rounded-sm" />
-          <span className="text-xs font-medium uppercase tracking-[0.28em] text-foreground/80">Remodex</span>
-        </Link>
-        <ThemeToggle />
-      </header>
+    <div className="rx-page min-h-screen text-foreground">
+      <SiteHeader stars={stars} homeHref="/" showNav={false} />
 
-      {/* ── Content ── */}
-      <main className="relative z-20 px-5 sm:px-6 md:px-16 lg:px-24 py-12 md:py-20">
-        <div className="w-full max-w-3xl mx-auto">
-          <article className="legal-prose text-foreground/70 text-[15px] leading-7">
+      <main className="rx-section">
+        <div className="rx-container mx-auto max-w-3xl">
+          <article className="legal-prose text-[15px] leading-7 text-foreground/70">
             <ReactMarkdown>{content}</ReactMarkdown>
           </article>
         </div>
       </main>
 
-      {/* ── Footer ── */}
-      <footer className="relative z-20 px-5 sm:px-6 md:px-16 lg:px-24 py-8 border-t border-foreground/8">
-        <div className="w-full max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-foreground/30">
-          <div className="flex items-center gap-2">
-            <img src="/icon.png" alt="Remodex" width={14} height={14} className="rounded-sm opacity-40" />
-            <span className="text-foreground/40">Remodex</span>
-          </div>
-          <div className="flex items-center gap-5">
-            <a href={REMODEX_REPO_URL} target="_blank" rel="noopener noreferrer">GitHub</a>
-            <Link href="/privacy-policy">Privacy</Link>
-            <Link href="/terms">Terms</Link>
-            <span className={mono.className}>ISC License</span>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter variant="legal" />
     </div>
   )
 }

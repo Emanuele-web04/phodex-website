@@ -1,9 +1,3 @@
-// FILE: site.ts
-// Purpose: Centralize shared site metadata values reused across route segments.
-// Layer: App metadata utility
-// Exports: SITE_URL, REMODEX_OG_IMAGE
-// Depends on: Next.js metadata consumers in src/app
-
 export const SITE_URL = 'https://www.remodex.site'
 
 export const REMODEX_OG_IMAGE = {
@@ -12,3 +6,17 @@ export const REMODEX_OG_IMAGE = {
   height: 1080,
   alt: 'Remodex — Remote Control for Codex',
 }
+
+export const REMODEX_APP_STORE_URL =
+  'https://apps.apple.com/us/app/remodex-remote-ai-coding/id6760243963'
+
+export const REMODEX_PRODUCT_HUNT_URL =
+  'https://www.producthunt.com/products/remodex-codex-remote-control?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-remodex-2'
+
+export const REMODEX_NPM_INSTALL_CMD = 'npm i -g remodex@latest'
+
+export const REMODEX_HERO_IMAGE = '/hero-phones.png'
+
+export const REMODEX_ANDROID_BETA_PATH = '/android-beta'
+
+export const REMODEX_PRO_PRICE_LABEL = 'Pro from $3.99/mo'
