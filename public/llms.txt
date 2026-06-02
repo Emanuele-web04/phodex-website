@@ -1,0 +1,34 @@
+# Remodex
+
+> Remodex is a local-first remote companion for Codex. It lets developers control a Codex runtime on their Mac from an iPhone through an open-source Mac bridge, secure QR pairing, real-time streamed responses, git actions, voice input, photo attachments, and optional hosted relay connectivity.
+
+## Core Pages
+
+- [Home](https://www.remodex.site/): Product overview for Remodex, including the iOS app, local Mac bridge, end-to-end encrypted pairing, install command, screenshots, FAQ, App Store link, Android beta link, and GitHub link.
+- [Android Beta](https://www.remodex.site/android-beta): Instructions for joining the Remodex Android beta through Google Groups and Google Play testing, installing the Android app, downloading the desktop relay/bridge, and previewing Android screens.
+- [Privacy Policy](https://www.remodex.site/privacy-policy): Data protection notice covering Remodex's local-first architecture, encrypted iPhone-to-Mac messages, hosted relay metadata, voice transcription, RevenueCat/Apple subscription processing, and contact information.
+- [Terms of Use](https://www.remodex.site/terms): Terms for the Remodex mobile app, secure pairing, Pro subscription, hosted services, acceptable use, open-source code, App Store terms, and support contact.
+
+## Product Links
+
+- [GitHub Repository](https://github.com/Emanuele-web04/remodex): Public Remodex source code, README, Mac bridge setup, and self-hosting details.
+- [App Store](https://apps.apple.com/us/app/remodex-remote-ai-coding/id6760243963): iOS App Store listing for Remodex.
+- [Product Hunt](https://www.producthunt.com/products/remodex-codex-remote-control): Product Hunt page for Remodex.
+- [Android Beta Group](https://groups.google.com/g/remodex-beta-testers): Google Group used for Android beta access.
+- [Android Tester Opt-In](https://play.google.com/apps/testing/com.remodex.mobile): Google Play testing opt-in page for Android beta users.
+- [Android App Install](https://play.google.com/store/apps/details?id=com.remodex.mobile): Google Play install page for opted-in Android beta testers.
+- [Android Desktop Relay Release](https://github.com/Stivy-01/remodex/releases/tag/Remodex-Host-Beta): Desktop relay and bridge release linked from the Android beta page.
+
+## Technical Highlights
+
+- Install command: `npm i -g remodex@latest`
+- Pairing command: `remodex up`
+- Runtime model: Codex, git, and workspace actions run on the user's Mac; the phone sends instructions through the Remodex bridge and receives streamed responses.
+- Security model: After pairing, app messages use an authenticated end-to-end encrypted channel with X25519, Ed25519, AES-256-GCM, and replay protection. A hosted relay can route traffic and see connection metadata/control messages, but not decrypted application payloads after the secure handshake succeeds.
+- Supported workflows: real-time chat, git status/commit/push/pull/branch/checkout/stash/log actions, terminal or SSH access from iPhone, photo attachments, voice transcription, trusted reconnect, macOS launchd background bridge support, and self-hosted relay options.
+- Requirements: Node.js 18+, Codex CLI installed and logged in on the Mac, and the Remodex mobile app.
+
+## Structured Discovery
+
+- [Sitemap](https://www.remodex.site/sitemap.xml): XML sitemap for the public Remodex website routes.
+- [Robots](https://www.remodex.site/robots.txt): Crawl permissions and sitemap reference.
